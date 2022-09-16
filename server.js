@@ -16,9 +16,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || "mongodb:", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
 });
 
 // routes
