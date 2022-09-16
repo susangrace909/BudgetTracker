@@ -9,9 +9,6 @@ fetch("/api/transaction")
     // save db data on global variable
     transactions = data;
 
-    //! TODO: Get items from Indexed DB store
-    //! TODO: Add those items to the transactions array
-
     populateTotal();
     populateTable();
     populateChart();
