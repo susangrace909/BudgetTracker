@@ -31,7 +31,7 @@ request.onerror = function (event) {
 // This function will be executed if we attempt to submit a new transaction when there's no internet connection
 function saveRecord(record) {
   // open a new transaction with the database with read and write permissions
-  const transaction = db.transaction(["new_transaction"], "readwrite");
+  const transaction = db.transaction("new_transaction", "readwrite");
 
   // access the object store for `new_transaction`
   const budgetObjectStore = transaction.objectStore("new_transaction");
@@ -42,7 +42,7 @@ function saveRecord(record) {
 
 function uploadTransaction() {
   // open a transaction on your db
-  const transaction = db.transaction(["new_transaction"], "readwrite");
+  const transaction = db.transaction("new_transaction", "readwrite");
 
   // access your object store
   const budgetObjectStore = transaction.objectStore("new_transaction");
@@ -68,7 +68,7 @@ function uploadTransaction() {
             throw new Error(serverResponse);
           }
           // open one more transaction
-          const transaction = db.transaction(["new_transaction"], "readwrite");
+          const transaction = db.transaction("new_transaction", "readwrite");
           // access the new_transaction object store
           const budgetObjectStore = transaction.objectStore("new_transaction");
           // clear all items in your store
